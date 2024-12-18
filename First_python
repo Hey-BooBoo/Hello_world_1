@@ -1,0 +1,67 @@
+#Omari Bethea
+#10-9-2024
+# The "Geopoly" python library must be installed by the command 'pip install geopy'  
+#Input: 
+#Make a list of the primary addresses and do not include secondary addresses.
+#The format follows this order: [street county state country]
+#Geopy locate addresses based off how specfic the user wants it to be.
+ list= []
+>>> list.append("1902 Broad St Durham NC")
+>>> list.append("412 E Pilot St Durham NC")
+>>> list.append("701 William Vickers Ave Durham NC")
+>>> list.append("5267 N Roxboro St Durham NC")
+>>> list.append("112 Broadway St Durham NC")
+>>> list.append("3325 Durham-Chapel Hill Blvd Durham NC")
+>>> list.append("504 W Chapel Hill St Durham NC")
+>>> list.append("3643 N Roxboro St Durham NC")
+>>> print(list)
+
+list=['1902 Broad St Durham NC', '412 E Pilot St Durham NC', '701 William Vickers Ave Durham NC', '5267 N Roxboro St Durham NC', '112 Broadway St Durham NC', '3325 Durham-Chapel Hill Blvd Durham NC', '504 W Chapel Hill St Durham NC', '3643 N Roxboro St Durham NC']
+
+#import geopy
+>>> from geopy.geocoders import Nominatim
+>>> loc = Nominatim(user_agent = "Geopy Library")
+
+#This is a for loop that runs through all the addresses in the list and returns 
+#back the full address, latitude, and longitude of the original addresses.
+for i in list:
+...  getLoc = loc.geocode(i)
+...  print(getLoc.address)
+...  print("Latitude =", getLoc.latitude, "\n")
+...  print("Longitude = ", getLoc.longitude)
+
+
+#Output:
+
+1902, Broad Street, West Murray / Broad, Durham, Durham County, North Carolina, 27705, United States
+Latitude = 36.0257382 
+
+Longitude =  -78.91566127579236
+412, East Pilot Street, Durham, Durham County, North Carolina, 27707, United States
+Latitude = 35.96537235822707 
+
+Longitude =  -78.90855911908344
+701, William Vickers Avenue, American Tobacco Historic District, Downtown Durham, Durham, Durham County, North Carolina, 27701, United States
+Latitude = 35.99528985 
+
+Longitude =  -78.9115091547092
+Goodwill, 5267, North Roxboro Street, Durham, Durham County, North Carolina, 27712, United States
+Latitude = 36.07521975 
+
+Longitude =  -78.91111074423918
+112, Broadway Street, American Tobacco Historic District, Downtown Durham, Durham, Durham County, North Carolina, 27701, United States
+Latitude = 36.000519529066516 
+
+Longitude =  -78.89642973529705
+3325, Durham-Chapel Hill Boulevard, Durham, Durham County, North Carolina, 27707, United States
+Latitude = 35.97157606711409 
+
+Longitude =  -78.94820847986577
+504, West Chapel Hill Street, American Tobacco Historic District, Downtown Durham, Durham, Durham County, North Carolina, 27701, United States
+Latitude = 35.9973904 
+
+Longitude =  -78.909561
+3643, North Roxboro Street, Braggtown, Durham, Durham County, North Carolina, 27704, United States
+Latitude = 36.03674895 
+
+Longitude =  -78.90020535516629
